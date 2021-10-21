@@ -1,1 +1,9 @@
-<h1>Note: {{ note }}</h1>
+<h1>{{ note }}</h1>
+
+<a href="{% url 'notes' %}">Back</a>
+
+<table>
+	<tr>
+		<td>{{ note.description }}</td>
+	</tr>
+</table>
