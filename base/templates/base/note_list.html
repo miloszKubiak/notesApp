@@ -1,0 +1,14 @@
+<h1>My Notes</h1>
+
+<table>
+	<tr>
+		<th>Item</th>
+	</tr>
+	{% for note in notes %}
+	<tr>
+		<td>{{ note.title }}</td>
+	</tr>
+	{% empty %}
+	<h3>No items in list</h3>
+	{% endfor %}
+</table>

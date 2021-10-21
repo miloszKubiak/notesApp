@@ -1,6 +1,6 @@
 from django.urls import path
-from . import views
+from .views import NoteList
 
 urlpatterns = [
-  path('', views.noteList, name='notes')
+  path('', NoteList.as_view(), name='notes'),
 ]

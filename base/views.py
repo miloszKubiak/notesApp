@@ -1,5 +1,7 @@
 from django.shortcuts import render
-from django.http import HttpResponse
+from django.views.generic.list import ListView
+from .models import Note
 
-def noteList(request):
-  return HttpResponse('My Notes')
+class NoteList(ListView):
+	model = Note
+	context_object_name = 'notes'
