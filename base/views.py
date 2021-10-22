@@ -7,7 +7,7 @@ from django.views.generic.detail import DetailView
 from django.views.generic.edit import CreateView, UpdateView, DeleteView
 from django.urls import reverse_lazy
 from django.contrib.auth.views import LoginView
-
+from django.contrib.auth.mixins import LoginRequiredMixin
 
 
 class CustomLoginView(LoginView):
@@ -19,30 +19,30 @@ class CustomLoginView(LoginView):
 		return reverse_lazy('notes')
 
 
-class NoteList(ListView):
+class NoteList(LoginRequiredMixin, ListView):
 	model = Note
 	context_object_name = 'notes'
 
 
-class NoteDetail(DetailView):
+class NoteDetail(LoginRequiredMixin, DetailView):
 	model = Note
 	context_object_name = 'note'
 	template_name = 'base/note.html'
 
 
-class NoteCreate(CreateView):
+class NoteCreate(LoginRequiredMixin, CreateView):
 	model = Note
 	fields = '__all__'
 	success_url = reverse_lazy('notes')
 
 
-class NoteUpdate(UpdateView):
+class NoteUpdate(LoginRequiredMixin, UpdateView):
 	model = Note
 	fields = '__all__'
 	success_url = reverse_lazy('notes')
 
 
-class NoteDelete(DeleteView):
+class NoteDelete(LoginRequiredMixin, DeleteView):
 	model = Note
 	context_object_name = 'note'
 	success_url = reverse_lazy('notes')
