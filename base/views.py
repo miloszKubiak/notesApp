@@ -23,6 +23,10 @@ class NoteList(LoginRequiredMixin, ListView):
 	model = Note
 	context_object_name = 'notes'
 
+	def get_context_data(self, **kwargs):
+		context = super().get_context_data(**kwargs)
+		context['notes'] = context['notes'].filter(user=self.request.user)
+		return context
 
 class NoteDetail(LoginRequiredMixin, DetailView):
 	model = Note
@@ -32,13 +36,17 @@ class NoteDetail(LoginRequiredMixin, DetailView):
 
 class NoteCreate(LoginRequiredMixin, CreateView):
 	model = Note
-	fields = '__all__'
+	fields = ['title', 'description']
 	success_url = reverse_lazy('notes')
+
+	def form_valid(self, form):
+		form.instance.user = self.request.user
+		return super(NoteCreate, self).form_valid(form)
 
 
 class NoteUpdate(LoginRequiredMixin, UpdateView):
 	model = Note
-	fields = '__all__'
+	fields = ['title', 'description']
 	success_url = reverse_lazy('notes')
 
 
