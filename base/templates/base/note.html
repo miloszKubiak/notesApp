@@ -1,3 +1,6 @@
+{% extends 'base/main.html' %}
+{% block content %}
+
 <h1>{{ note }}</h1>
 
 <a href="{% url 'notes' %}">Back</a>
@@ -7,3 +10,5 @@
 		<td>{{ note.description }}</td>
 	</tr>
 </table>
+
+{% endblock content %}
