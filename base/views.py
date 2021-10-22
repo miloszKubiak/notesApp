@@ -44,6 +44,14 @@ class NoteList(LoginRequiredMixin, ListView):
 	def get_context_data(self, **kwargs):
 		context = super().get_context_data(**kwargs)
 		context['notes'] = context['notes'].filter(user=self.request.user)
+
+		search_input = self.request.GET.get('search-area') or ''
+		if search_input:
+			context['notes'] = context['notes'].filter(title__icontains=search_input)
+			# title__startswith - if we want to filter from the first letter
+		
+		context['search_input'] = search_input
+
 		return context
 
 
