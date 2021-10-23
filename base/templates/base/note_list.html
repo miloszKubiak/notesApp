@@ -7,21 +7,19 @@
 	</div>
 
 	{% if request.user.is_authenticated %}
-	<a href="{% url 'logout' %}"><i class="fas fa-power-off"></i></a>
+	<a href="{% url 'logout' %}"><i class="logout fas fa-power-off"></i></a>
 	{% else %}
 	<a href="{% url 'login' %}">Login</a>
 	{% endif %}
 </div>
 
-
-
-
-<a href="{% url 'note-create' %}">Add Note</a>
-
-<form method="GET">
-	<input type="text" name="search-area" value="{{ search_input }}">
-	<input type="submit" value="Search">
-</form>
+<div class="search-wrapper">
+	<form method="GET">
+		<input type="text" name="search-area" value="{{ search_input }}">
+		<button class="search-button"><i class="fas fa-search"></i></button>
+	</form>
+	<a href="{% url 'note-create' %}"><i class="add-note fas fa-plus"></i></a>
+</div>
 
 <div class="note-items-wrapper">
 	{% for note in notes %}
@@ -30,9 +28,9 @@
 			{{ note.title }}
 		</div>
 		<div class="note-actions">
-			<a href="{%  url 'note' note.id %}">View</a>
-			<a href="{%  url 'note-update' note.id %}">Edit</a>
-			<a href="{%  url 'note-delete' note.id %}">Delete</a>
+			<a href="{%  url 'note' note.id %}"><i class="view fas fa-eye"></i></a>
+			<a href="{%  url 'note-update' note.id %}"><i class="edit fas fa-edit"></i></a>
+			<a href="{%  url 'note-delete' note.id %}"><i class="delete fas fa-trash"></i></a>
 		</div>	
 	</div>
 	{% empty %}
