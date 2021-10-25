@@ -14,9 +14,9 @@
 </div>
 
 <div class="search-wrapper">
-	<form method="GET">
-		<input type="text" name="search-area" value="{{ search_input }}">
-		<button class="search-button"><i class="fas fa-search"></i></button>
+	<form method="GET" style="display: flex; margin-top: 15px;">
+		<input placeholder="Search..." type="text" name="search-area" value="{{ search_input }}">
+		<button><i class="fas fa-search"></i></button>
 	</form>
 	<a href="{% url 'note-create' %}"><i class="add-note fas fa-plus"></i></a>
 </div>

@@ -1,12 +1,18 @@
 {% extends 'base/main.html' %}
 {% block content %}
 
-<h3>Note Form</h3>
-<a href="{% url 'notes' %}">Back</a>
-<form method="POST" action="">
-	{% csrf_token %}
-	{{ form.as_p }}
-	<input type="submit" value="submit">
-</form>
+<div class="header-bar">
+	<h3>Add Note</h3>
+	<a href="{% url 'notes' %}"><i class="fas fa-arrow-left"></i></a>
+	
+</div>
+
+<div class="card-body">
+	<form method="POST" action="">
+		{% csrf_token %}
+		{{ form.as_p }}
+		<input class="button" type="submit" value="Add">
+	</form>
+</div>
 
 {% endblock content %}

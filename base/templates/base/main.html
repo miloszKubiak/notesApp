@@ -20,6 +20,7 @@
 
 		h1,
 		h3 {
+			font-size: 30px;
 			font-family: 'Dancing Script', cursive;
 		}
 
@@ -41,21 +42,25 @@
 			color: white;
 			padding: 30px;
 			border-radius: 10px 10px 0 0;
-			background: linear-gradient(to right, #1fa2ff, #12d8fa, #a6ffcb);
+			background: linear-gradient(to right, #eacda3, #d6ae7b);;
 		}
 
 		.header-bar a {
-			color: black;
+			display: flex;
+			align-items: center;
+			color: white;
 			text-decoration: none;
+			font-size: 25px;
 		}
 
 		.logout {
 			font-size: 25px;
 		}
 
-		.logout:hover {
-			color: white;
-			transform: scale(1.3);
+		.logout:hover,
+		.header-bar a:hover {
+			color: lightgoldenrodyellow;
+			transform: scale(1.1);
 			transition: .3s;
 		}
 
@@ -67,31 +72,35 @@
 			border-top: 1px solid white;
 		}
 
-		.view, .edit, .delete, .add-note {
+		.view,
+		.edit,
+		.delete,
+		.add-note {
 			font-size: 25px;
 			margin-left: 20px;
 		}
 
 		.view:hover {
-			color: grey;
-			transform: scale(1.3);
+			color: goldenrod;
+			transform: scale(1.2);
 			transition: .3s;
 		}
 
 		.edit:hover {
-			color: grey;
-			transform: scale(1.3);
+			color: goldenrod;
+			transform: scale(1.2);
 			transition: .3s;
 		}
 
 		.delete:hover {
-			color: red;
-			transform: scale(1.3);
+			color:tomato;
+			transform: scale(1.2);
 			transition: .3s;
 		}
 
 		.add-note:hover {
-			transform: scale(1.3);
+			color: goldenrod;
+			transform: scale(1.2);
 			transition: .3s;
 		}
 
@@ -114,6 +123,37 @@
 			background: none;
 		}
 
+		input[type=text],
+		input[type=password],
+		textarea {
+			border: 1px solid goldenrod;
+			outline: none;
+			border-radius: 5px;
+			padding: 10px;
+			min-width: 80%;
+			max-width: 80%;
+			min-height: 25px;
+			max-height: 300px;
+		}
+
+		label {
+			padding-top: 10px;
+			display: block;
+		}
+
+		.button {
+			border: 1px solid goldenrod;
+			background-color: goldenrod;
+			color: white;
+			font-size: 15px;
+			cursor: pointer;
+			border-radius: 5px;
+			text-decoration: none;
+		}
+
+		.card-body {
+			padding: 30px;
+		}
 	</style>
 </head>
 <body>
