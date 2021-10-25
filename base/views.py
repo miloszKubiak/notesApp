@@ -75,6 +75,7 @@ class NoteUpdate(LoginRequiredMixin, UpdateView):
 	model = Note
 	fields = ['title', 'description']
 	success_url = reverse_lazy('notes')
+	template_name = 'base/note-edit.html'
 
 
 class NoteDelete(LoginRequiredMixin, DeleteView):

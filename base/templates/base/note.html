@@ -1,14 +1,17 @@
 {% extends 'base/main.html' %}
 {% block content %}
 
-<h1>{{ note }}</h1>
+<div class="header-bar">
+	<h1>{{ note }}</h1>
+	<a href="{% url 'notes' %}"><i class="fas fa-arrow-left"></i></a>
+</div>
 
-<a href="{% url 'notes' %}">Back</a>
-
-<table>
-	<tr>
-		<td>{{ note.description }}</td>
-	</tr>
-</table>
+<div class="card-body">
+	<table>
+		<tr>
+			<td>{{ note.description }}</td>
+		</tr>
+	</table>
+</div>
 
 {% endblock content %}
