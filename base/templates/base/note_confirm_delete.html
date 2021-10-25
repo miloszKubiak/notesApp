@@ -1,11 +1,16 @@
 {% extends 'base/main.html' %}
 {% block content %}
 
-<a href="{% url 'notes' %}">Back</a>
-<form method="POST">
-	{% csrf_token %}
-	<p>Are you sure you want to delete this note? "{{ note }}"</p>
-	<input type="submit" value="Delete">
-</form>
+<div class="header-bar">
+	<a href="{% url 'notes' %}"><i class="fas fa-arrow-left"></i></a>
+</div>
+
+<div class="card-body">
+	<form method="POST">
+		{% csrf_token %}
+		<p>Are you sure you want to delete this note? "{{ note }}"</p>
+		<input class="button" type="submit" value="Delete">
+	</form>
+</div>
 
 {% endblock content %}
