@@ -7,6 +7,7 @@
 
 <div class="card-body">
 	<form method="POST" style="display: flex; flex-direction: column;">
+		<!-- Używamy tokenu CSRF ze względu na bezpieczeństwo użytkownika ponieważ bez niego przeglądarka ofiary może zostać zmuszona do wykonania pewnej nieautoryzowanej akcji (requestu HTTP) -->
 		{% csrf_token %}
 		<label>{{ form.username.label }}</label>
 		{{ form.username }}

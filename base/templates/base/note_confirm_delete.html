@@ -7,6 +7,7 @@
 
 <div class="card-body">
 	<form method="POST">
+		<!-- Używamy tokenu CSRF ze względu na bezpieczeństwo użytkownika ponieważ bez niego przeglądarka ofiary może zostać zmuszona do wykonania pewnej nieautoryzowanej akcji (requestu HTTP) -->
 		{% csrf_token %}
 		<p>Are you sure you want to delete this note? "{{ note }}"</p>
 		<input class="button" type="submit" value="Delete">

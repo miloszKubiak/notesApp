@@ -7,6 +7,7 @@
 
 <div class="card-body">
 	<form method="POST">
+		<!-- Używamy tokenu CSRF ze względu na bezpieczeństwo użytkownika ponieważ bez niego przeglądarka ofiary może zostać zmuszona do wykonania pewnej nieautoryzowanej akcji (requestu HTTP) -->
 		{% csrf_token %}
 		{{ form.as_p }}
 		<input style="width: 25%;" class="button" type="submit" value="Login">
